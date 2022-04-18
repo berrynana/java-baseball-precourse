@@ -54,16 +54,23 @@ public class Utils {
         return str.matches(String.format("[1-9]{%d}", range));
     }
 
-    public static String removeDuplicateNumber(String str) {
+    public static boolean hasNotDuplicateNumber(String str) {
         Set<String> set = new LinkedHashSet<>();
         for (int index = 0; index < str.length(); index++) {
             set.add(String.valueOf(str.charAt(index)));
         }
-        return String.join("", set);
+        return String.join("", set).equals(str);
+    }
+
+    public static boolean validateNumber(List<Integer> numbers) {
+        String strNumber = numbers.toString().replaceAll("[^0-9]","");
+        return validateNumber(strNumber);
     }
 
     public static boolean validateNumber(String str) {
-        str = Utils.removeDuplicateNumber(str);
+        if (!Utils.hasNotDuplicateNumber(str)) {
+            return false;
+        }
 
         return Utils.isNumber(str)
             && Utils.validateNumberRange(str, Constants.INPUT_NUMBER_LENGTH)
