@@ -9,9 +9,9 @@ public class Constants {
     public static final int FINISH_STRIKE_OUT = 3;
 
     // 게임 재시작
-    public static final int RESTART_GAME = 1;
+    public static final char RESTART_GAME = '1';
 
     // 게임 종료
-    public static final int FINISH_GAME = 2;
+    public static final char FINISH_GAME = '2';
 
 }

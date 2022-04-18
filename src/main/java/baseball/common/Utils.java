@@ -1,6 +1,9 @@
 package baseball.common;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Utils {
@@ -15,6 +18,20 @@ public class Utils {
         }
 
         return 0;
+    }
+
+    public static List<Integer> stringToIntList(String str) {
+        if (str == null) {
+            return new ArrayList<>();
+        }
+
+        Integer[] intArray = new Integer[str.length()];
+
+        for (int index = 0; index < str.length(); index++) {
+            intArray[index] = Character.digit(str.charAt(index), 10);
+        }
+
+        return Arrays.asList(intArray);
     }
 
     public static boolean equalsLength(String str, int length) {
